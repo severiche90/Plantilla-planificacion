@@ -1,17 +1,17 @@
 \documentclass[11pt]{charter}
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Título del proyecto} 
+\titulo{Sistema de monitoreo de temperatura para la industria farmaceutica} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
-\posgrado{Carrera de Especialización en Sistemas Embebidos} 
-%\posgrado{Carrera de Especialización en Internet de las Cosas} 
+%\posgrado{Carrera de Especialización en Sistemas embebidos} 
+\posgrado{Carrera de Especialización en Internet de las Cosas} 
 %\posgrado{Carrera de Especialización en Intelegencia Artificial}
 %\posgrado{Maestría en Sistemas Embebidos} 
 %\posgrado{Maestría en Internet de las cosas}
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
-\autor{Nombre del Autor} 
+\autor{Jose Severiche} 
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
 \director{Nombre del Director}
@@ -21,8 +21,8 @@
 \pertenenciaCoDirector{}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Nombre del cliente}
-\empresaCliente{Empresa del cliente}
+\cliente{Jose Severiche}
+\empresaCliente{Emprendimiento personal}
 
 % Nombre y pertenencia de los jurados, se pueden usar el cualquier lugar del documento con el comando \jurunoname, \jurdosname y \jurtresname y \perteunoname, \pertedosname y \pertetresname.
 \juradoUno{Nombre y Apellido (1)}
@@ -32,9 +32,9 @@
 \juradoTres{Nombre y Apellido (3)}
 \pertenenciaJurTres{pertenencia (3)}
  
-\fechaINICIO{22 de junio de 2020}		%Fecha de inicio de la cursada de GdP \fechaInicioName
-\fechaFINALPlanificacion{22 de Agosto de 2020} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{22 de diciembre de 2020}		%Fecha de defensa pública del trabajo final
+\fechaINICIO{25 de Agosto de 2020}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaFINALPlanificacion{13 de Octubre de 2020} 	%Fecha de final de cursada de GdP
+\fechaFINALTrabajo{22 de Diciembre de 2021}		%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -62,8 +62,8 @@
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
-1.0      & Creación del documento                                          & 27/06/2020 \\ \hline
-1.1      &                                                                 & dd/mm/aaaa \\ \hline
+1.0      & Creación del documento                                          & 25/08/2020 \\ \hline
+1.1      & Completar desde el punto 1 al 6 inclusive                       & 01/09/2020 \\ \hline
 1.2      & Otro ejemplo \newline
 		   Con texto partido \newline
 		   En varias líneas \newline
@@ -84,7 +84,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en el prototipo preliminar de un sistema de control de temperatura de un calefón, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \textcolor{red}{\$XXX}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en el prototipo preliminar de un sistema de monitoreo de temperatura aplicado a la industria farmaceutica, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \textcolor{red}{\$XXX}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -107,58 +107,76 @@ Se adjunta a esta acta la planificación inicial.
 \section{Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-\begin{consigna}{red}
-El objetivo es que el lector en una o dos páginas entienda de qué se trata el proyecto y cuáles son sus desafíos, su motivación y su importancia.
-Se debe destacar claramente cuál es el valor que agrega el proyecto a realizar. ``El presente proyecto se destaca especialmente por incorporar tal cosa... Esto lo diferencia de otros sistemas similares en que ...''
+\begin{consigna}{black}
+En toda industria farmaceutica como farmacias, droguerias, hospitales y laboratorios es de vital importancia en sus medicamentos poder monitorear su temperatura de almacenamiento y distribución, para poder asegurarse de no romper su cadena de frío y de esta manera proteger la calidad de los medicamentos.
+Ante eventuales auditorias de ANMAT, el usuario que este encargado controlar la temperatura de almacenamiento, debera presentar un registro d e datos en donde se debera detallar los valores de temperatura que se obtuvieron durante un periodo de tiempo, a una frecuencia de tiempo establecida. Ademas en las áreas de almacenamiento con temperaturas controladas deben poseer un sistema efectivo de alarma en intervalos definidos, que permita prevenir desviaciones de temperaturas no permitidas durante tiempos muy prologandos que puedan compromenter la calidad de los medicamentos.
 
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
+Este sistema de monitoreo de temperatura a desarrollar deberá ser capaz de brindar informacion de temperatura al usuario en tiempo real, generar registros de temperatura a una frecuencia establecida para lapsos de tiempos determinados y ademas generar alarmas de fuera de rango de temperatura, notificando este evento al usuario vial mail. 
 
-\begin{itemize}
-\item ¿Cómo se vincula este proyecto con la misión de la organización?
-\item ¿Cómo se inserta este proyecto en el modelo de negocio de la organización?
-\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-\item ¿En qué estado del ciclo de vida está el producto que se desea reemplazar o mejorar?
-\item ¿Cuales son las necesidades que debe satisfacer?
-\item ¿Por dónde pasa la innovación?
-\end{itemize}
+Como primer elemento contendra un sensor de temperatura digital DS18B20, el cual estará conectado de forma directa a un puerto del microcontrolador ESP32. Este microcontrolador sera el encargado de leer los datos que son emitidos por el sensor, para luego ser enviados de forma inalambrica a un Rasperry pi 4 que actuara como servidor. El usuario mendiante una aplicacion Web tendrá la disponibilidad de monitorear la temperatura en tiempo real, podra realizar una configuración inicial al sistema, en donde debera indicar la frecuencia de adquisición de datos, dichos datos seran almacenados en una base de datos,deberá configurar temperatura minima y maxima permitidas, para que en el caso que no se cumpla con este rango de temperatura se genere automáticamente una alarma, notificando al usuario via mail que el ambiente a monitorear no está dentro los valores de temperaturas establecidos. De esta forma el usuario podrá garantizar que el ambiente a monitorear siempre estará en el rango de temperatura establecido. Además el usuario tendrá la disponibilidad de descargar registros de datos, estos datos descargados podrán visualizarse mediante un gráfico o una tabla de datos, para luego ser utilizados como documentación para una eventual auditoría. A continuacion en la siguiente imagen se ilustra en un diagrama en bloques las partes esenciales que componen este sistema de monitoreo de temperatura.
 
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema }y una frase como la siguiente: ``En la Figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''. Luego recién más abajo de haber puesto esta frase se pone la figura. La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+%El objetivo es que el lector en una o dos páginas entienda de qué se trata el proyecto y cuáles son sus desafíos, su motivación y su importancia.
+%Se debe destacar claramente cuál es el valor que agrega el proyecto a realizar. ``El presente proyecto se destaca especialmente por incorporar tal cosa... Esto lo diferencia de otros sistemas similares en que ...''
+
+%Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
+
+%\begin{itemize}
+%\item ¿Cómo se vincula este proyecto con la misión de la organización?
+%\item ¿Cómo se inserta este proyecto en el modelo de negocio de la organización?
+%\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
+%\item ¿En qué estado del ciclo de vida está el producto que se desea reemplazar o mejorar?
+%\item ¿Cuales son las necesidades que debe satisfacer?
+%\item ¿Por dónde pasa la innovación?
+%\end{itemize}
+
+%La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema }y una frase como la siguiente: ``En la Figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''. Luego recién más abajo de haber puesto esta frase se pone la figura. La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
 
 \vspace{25px}
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.7\textwidth]{./Figuras/diagBloques.png}
+%\includegraphics[width=.7\textwidth]{./Figuras/diagBloques.png}
+\includegraphics[width=.8\textwidth]{./Figuras/diagramabloque.png}  
 \caption{Diagrama en bloques del sistema}
 \label{fig:diagBloques}
 \end{figure}
 
 \vspace{25px}
 
-El tamaño de la tipografía en la figura debe ser adecuado para que NO pase lo que ocurre acá, donde el lector debe esforzarse para poder leer el texto. Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama.
+Los aspectos importantes en el diseño del sistema de monitoreo serán: 
+
+Comsumo de energia: elegir un medio de transmisión de datos inalámbrico de bajo consumo, la idea es optimizar el consumo de energía, ya que se utilizara baterías como sistema de alimentación del microcontrolador.
+
+Transmision de datos: elegir un medio de transmisión inalámbrica de datos confiables y de buen alcance, ya que no debe perderse informacion que serían de vital importancia para el usuario.
+
+Sensor de lectura: se deberá seleccionar un sensor de temperatura acorde al ambiente a medir y a la distancia que esté ubicado el sensor de temperatura con respecto al microcontrolador.
+
+Servidor: la elección del tipo de servidor será muy importante, ya que desde ahí se procesaran los datos para que el usuario pueda visualizarlos mediante una aplicación Web, como así también almacenarlos en una base de datos.
+
+%El tamaño de la tipografía en la figura debe ser adecuado para que NO pase lo que ocurre acá, donde el lector debe esforzarse para poder leer el texto. Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama.
 \end{consigna}
 
 
 \section{Identificación y análisis de los interesados}
 \label{sec:interesados}
 
-\begin{consigna}{red} 
-Nota: (borrar esto y todas las consignas en color rojo antes de entregar este documento).
+%\begin{consigna}{red} 
+%Nota: (borrar esto y todas las consignas en color rojo antes de entregar este documento).
  
-Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos.
+%Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos.
  
-Si se considera que una persona cumple dos o más roles, entonces sólo dejarla en el rol más importante. Por ejemplo:
+%Si se considera que una persona cumple dos o más roles, entonces sólo dejarla en el rol más %importante. Por ejemplo:
 
-\begin{itemize}
-\item Si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente.
-\item Si una persona es el Responsable, no debe ser colocado también como Miembro del equipo.
-\end{itemize}
+%\begin{itemize}
+%\item Si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente.
+%\item Si una persona es el Responsable, no debe ser colocado también como Miembro del equipo.
+%\end{itemize}
 
-Pero en cambio sí es usual que el Cliente y el Auspiciante sean el mismo, por ejemplo.
+%Pero en cambio sí es usual que el Cliente y el Auspiciante sean el mismo, por ejemplo.
 
 \begin{table}[ht]
-%\caption{Identificación de los interesados}
-%\label{tab:interesados}
+\caption{Identificación de los interesados}
+\label{tab:interesados}
 \begin{tabularx}{\linewidth}{@{}|l|X|X|l|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0} 
@@ -176,45 +194,70 @@ Usuario final &                   &              	&        	\\ \hline
 \end{tabularx}
 \end{table}
 
-El Director suele ser uno de los Orientadores.
+%El Director suele ser uno de los Orientadores.
 
-No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
+%No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
 
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
+%No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
 
-Sería deseable listar a continuación de la tabla las principales características de cada interesado.
+%Sería deseable listar a continuación de la tabla las principales características de cada interesado.
  
-Por ejemplo:
-\begin{itemize}
-\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
-\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
-\item Orientador: María Gómez, nos va a poder ayudar mucho con la gestión de impuestos.
-\end{itemize}
+%Por ejemplo:
+%\begin{itemize}
+%\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
+%\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
+%\item Orientador: María Gómez, nos va a poder ayudar mucho con la gestión de impuestos.
+%\end{itemize}
 
-\end{consigna}
+%\end{consigna}
 
 
 
 \section{1. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{red}
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
+\begin{consigna}{black}
+El propósito de este proyecto es desarrollar un sistema de monitoreo de temperatura, para que el usuaria pueda visualizar mediante una aplicacion la temperatura en tiempo real, descargar  registros de datos de temperatura para eventuales auditoria, y que ademas le lleguen mails de notificacion de alarmas de fuera de rango de temperatura, se debe lograr que el sistema pueda generar estos parametros de forma segura y confiable para que el usuario tenga la tranquilidad de que el area de monitoreo este dentro  del rango de temperaturas establecidas, y asi poder resguadar la integridad de los medicamentos. 
+%¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
 
-Se recomienda que sea solo un párrafo que empiece diciendo ``El propósito de este proyecto es...''.
-\end{consigna}
+%Se recomienda que sea solo un párrafo que empiece diciendo ``El propósito de este proyecto es...''.
+\end{consigna} 
 
 \section{2. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
+\begin{consigna}{black}
+El presente proyecto incluye:
+\begin{itemize}
+\item Sensor de temperatura 
+\item Microcontrolador
+\item Modulo de transmicion inalambrica de datos
+\item Servidor web
+\item Base de datos
+\item Aplicacion web para usuarios
+\item Servicio de mensajeria via mail
+\item Instalacion y configuracion de todo el sistema
+\item Servicio tecnico durante la garantia
+\item Brindar servicio de Mantenimiento de hardware y software del sistema
+\item Confeccion de manual tecnico y un manual de usuario
+\end{itemize}
 
-Se refiere al trabajo a hacer para entregar el producto o resultado especificado. 
+El presete proyecto no incluye: 
+\begin{itemize}
+\item Display externo para visualizar las mediciones  
+\item Dispositivos externos tales como CPU, celulares, etc
+\item hardware externo para configurar el funcionamiento
+\item Servicio de internet 
+\end{itemize}
 
-Explicitar todo lo quede comprendido dentro del alcance del proyecto.
 
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
+%¿Qué se incluye y que no se incluye en este proyecto?
+
+%Se refiere al trabajo a hacer para entregar el producto o resultado especificado. 
+
+%Explicitar todo lo quede comprendido dentro del alcance del proyecto.
+
+%Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
 
 \end{consigna}
 
@@ -222,51 +265,65 @@ Explicitar además todo lo que no quede incluido (``El presente proyecto no incl
 \section{3. Supuestos del proyecto}
 \label{sec:supuestos}
 
-\begin{consigna}{red}
-``Para el desarrollo del presente proyecto se supone que: ...''
+\begin{consigna}{black}
+Para el desarrollo del presente proyecto se supone que
 
 \begin{itemize}
-\item Supuesto 1
-\item Supuesto 2...
+\item La organizacion o cliente debera contar con conexion internet 
+\item El usuario que administre el sistema debera tener minimos conocimentos de informatica
+\item Para optimizar la transmicion de datos, el dispositivo que sensa la temperatura debera estar libre de obstaculos que puedan atenuar la señal de transmicion.
+\item El usuario deberan descargar los datos en su PC, cada cierto periodo de tiempo, para no congestionar la base de datos del sistema.
 \end{itemize}
 
-Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
+%Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
 \end{consigna}
 
 \section{4. Requerimientos}
 \label{sec:requerimientos}
 
-\begin{consigna}{red}
-Los requerimientos deben numerarse y de ser posible agruparlos por afinidad:
-
+\begin{consigna}{black}
+%Los requerimientos deben numerarse y de ser posible agruparlos por afinidad:
 \begin{enumerate}
-\item Grupo de requerimientos asociados con...
+\item Grupo de requerimientos asociados con el hardware
 	\begin{enumerate}
-	\item Requerimiento 1
-	\item Requerimiento 2
-	\item Requerimiento 3 (prioridad menor)
+	\item Eleccion del tipo de sensor mas adecuado para el rango de temperatura a medir
+	\item microcontrolador de bajo consumo de energia
+	\item Medio inalambrico de bajo consumo y largo alcance 
+	\item Bajo costo 
+	\item Menor volumen posible en cuanto a disposicion de hardware 
 	\end{enumerate}
-\item Grupo de requerimientos asociados con...
+\item Grupo de requerimientos asociados con el servidor
 	\begin{enumerate}
-	\item Requerimiento 1
-	\item Requerimiento 2 (prioridad menor)
-	\end{enumerate}
+	\item Protocolo de comunicacion Broker MQTT
+	\item Almacenamiento de Base de datos MySQL
+	\item Entorno de ejecucion (Node.JS)
+    \end{enumerate}
+\item Grupo de requerimientos asociados con la aplicacion web
+	\begin{enumerate}
+	\item Diseño basado en la Tecnologia JavaScript /HTML5
+	\item visualizacion sencilla y clara para los usuarios
+	\item Solicitud de registracion para los usuarios
+	\item Agregar dispositivo con numero de serial
+	\item Configuracion inicial de funcionamiento desde la aplicacion
+	\item Monitoreo de la temperatura en tiempo real
+	\item Descarga de datos desde la aplicacion
+    \end{enumerate}
 \end{enumerate}
 
-Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
+%Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
 
-De ser posible indicar cómo se obtuvieron cada uno de los requerimientos 
+%De ser posible indicar cómo se obtuvieron cada uno de los requerimientos 
 
-Indicar claramente cuál es la prioridad entre los distintos requerimientos. 
+%Indicar claramente cuál es la prioridad entre los distintos requerimientos. 
 
-No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!
+%No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!
 
-Y al escribirlos seguir las siguientes reglas:
-\begin{itemize}
-\item Ser breve y conciso (nadie lee cosas largas). 
-\item Ser específico: no dejar lugar a confusiones.
-\item Expresar los requerimientos en términos que sean cuantificables y medibles.
-\end{itemize}
+%Y al escribirlos seguir las siguientes reglas:
+%\begin{itemize}
+%\item Ser breve y conciso (nadie lee cosas largas). 
+%\item Ser específico: no dejar lugar a confusiones.
+%\item Expresar los requerimientos en términos que sean cuantificables y medibles.
+%\end{itemize}
 
 \end{consigna}
 
@@ -280,15 +337,15 @@ Descripción: En esta sección se deben incluir las historias de usuarios y su p
 \section{5. Entregables principales del proyecto}
 \label{sec:entregables}
 
-\begin{consigna}{red}
-Cosas como: 
+\begin{consigna}{black}
+Se entregara: 
 \begin{itemize}
+\item Planificacion del Proyecto
 \item Manual de uso
-\item Diagrama esquemático
-\item Código fuente
+\item Diagrama esquemático 
 \item Diagrama de instalación
+\item Prototipo funcional de todo el sistema
 \item Informe final
-
 \end{itemize}
 
 \end{consigna}
@@ -296,35 +353,54 @@ Cosas como:
 \section{6. Desglose del trabajo en tareas}
 \label{sec:wbs}
 
-\begin{consigna}{red}
-Se recomienda mostrar el WBS mediante una lista indexada:
+\begin{consigna}{black}
+%Se recomienda mostrar el WBS mediante una lista indexada:
 
 \begin{enumerate}
-\item Grupo de tareas 1
+\item Etapa inicial del proyecto (80hs)
 	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
+	\item Busqueda de informacion bibliografica e internet (tantas 20hs)
+	\item Busqueda de herramientas necesarias para el proyecto(tantas 20hs)
+	\item Planificacion del proyecto (tantas 40hs)
 	\end{enumerate}
-\item Grupo de tareas 2
+\item Desarrolo de Hardware (140hs)
 	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
+	\item Eleccion del sensor (20hs)
+	\item Puesta de funcionamiento del sensor (20hs)
+	\item Programacion de microcontrolador (20hs)
+	\item Investigacion y eleccion de dispositivo inalambrico(20hs)
+	\item Puesta de funcionamiento de dispositivo inalambrico (40hs)
+	\item Prueba de funcionamiento (20hs)
 	\end{enumerate}
-	\item Grupo de tareas 3
+\item Servidor web (190hs)
 	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
-	\item Tarea 4 (tantas hs)
-	\item Tarea 5 (tantas hs)
+	\item Funcionamiento e instalacion de Rasperry Pi 4 (30hs)
+	\item Eleccion de un sistema operativo basado en debian (20hs)
+	\item Instalacion de servidor MQQT (30hs)
+	\item Desarrolo de servicio de mensajeria(40hs)
+	\item Desarrolo de base de datos MySQL (40hs)
+	\item Prueba de Funcionamiento del servidor (40hs)
 	\end{enumerate}
+\item Aplicacion Web (180hs)
+	\begin{enumerate}
+	\item Seleccion de entorno de programacion (20hs)
+	\item Desarrolo de login de usuario (40hs)
+	\item Desarrollo de programacion de interfaz grafica (40hs)
+	\item Desarrolo de programacion para funcionamiento de alarmas(40hs)
+	\item Prueba de funcionamiento con el servidor (40hs)
+	\end{enumerate}
+\item Finalización (50hs)
+	\begin{enumerate}
+	\item Elaboración de documentación (20hs)
+	\item Elaboración de la presentación del proyecto final (20hs)
+	\item Cierre del proyecto (10hs)
+	\end{enumerate}
+	
 \end{enumerate}
 
-Cantidad total de horas: (tantas hs)
+Cantidad total de horas: (640 hs)
 
-Se recomienda que no haya ninguna tarea que lleve más de 40 hs. 
+%Se recomienda que no haya ninguna tarea que lleve más de 40 hs. 
 
 \end{consigna}
 
